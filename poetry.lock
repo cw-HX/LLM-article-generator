@@ -573,6 +573,18 @@ pytest = ["pytest (>=7.0.0)", "rich (>=13.9.4)", "vcrpy (>=7.0.0)"]
 vcr = ["vcrpy (>=7.0.0)"]
 
 [[package]]
+name = "markdown"
+version = "3.10"
+description = "Python implementation of John Gruber's Markdown."
+category = "main"
+optional = false
+python-versions = ">=3.10"
+
+[package.extras]
+testing = ["coverage", "pyyaml"]
+docs = ["mkdocs (>=1.6)", "mkdocs-nature (>=0.6)", "mdx_gh_links (>=0.2)", "mkdocstrings", "mkdocs-gen-files", "mkdocs-section-index", "mkdocs-literate-nav"]
+
+[[package]]
 name = "markupsafe"
 version = "3.0.3"
 description = "Safely add untrusted strings to HTML/XML markup."
@@ -1146,7 +1158,7 @@ cffi = ["cffi (>=1.17,<2.0)", "cffi (>=2.0.0b)"]
 [metadata]
 lock-version = "1.1"
 python-versions = ">=3.10.0,<3.11"
-content-hash = "d7b79678f6e58a5d8062f0bc80132dc1c417df3e587f2f74fe098adcd6b72ed0"
+content-hash = "8e4aa905a3dcd1594ed1276b94a1643d93a1e06283cf9fb6c2d6b426a2aa9ede"
 
 [metadata.files]
 aiohappyeyeballs = []
@@ -1192,6 +1204,7 @@ langgraph-checkpoint = []
 langgraph-prebuilt = []
 langgraph-sdk = []
 langsmith = []
+markdown = []
 markupsafe = []
 marshmallow = []
 multidict = []

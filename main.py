@@ -2,6 +2,7 @@ from flask import Flask, render_template, request
 from langchain_groq import ChatGroq
 from langchain_core.prompts import PromptTemplate
 import os
+import markdown
 
 app = Flask(__name__)
 
@@ -23,8 +24,9 @@ def generate():
     chain = prompt_template | llm
     title = request.json.get('prompt')
     output = chain.invoke({"title": title})
-    # ChatGroq returns a BaseMessage, we need to extract the content string
-    return output.content
+    # ChatGroq returns a BaseMessage, extract content and convert markdown to HTML
+    html_content = markdown.markdown(output.content)
+    return html_content
 
 
 app.run(host='0.0.0.0', port=5000)
