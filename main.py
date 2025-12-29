@@ -3,6 +3,10 @@ from langchain_groq import ChatGroq
 from langchain_core.prompts import PromptTemplate
 import os
 import markdown
+from dotenv import load_dotenv
+
+# Load environment variables from .env (if present)
+load_dotenv()
 
 app = Flask(__name__)
 

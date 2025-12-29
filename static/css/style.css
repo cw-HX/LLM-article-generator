@@ -1,0 +1,132 @@
+/* Minimal CSS to implement the LLM Article Generator layout
+   - Single-column centered card
+   - Neutral background, modern sans-serif font
+   - Generous spacing and responsive layout
+*/
+
+:root{
+  --bg: #f8fafc; /* very light gray */
+  --card: #ffffff;
+  --muted: #6b7280; /* gray-500 */
+  --border: #e6e9ee; /* subtle border */
+  --blue: #2563eb; /* blue-600 */
+  --text: #111827; /* gray-900 */
+}
+
+*{box-sizing:border-box}
+
+html,body{height:100%}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--text);
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:24px;
+}
+
+.app-card{
+  width:100%;
+  max-width:720px;
+  background:var(--card);
+  border-radius:14px;
+  box-shadow:0 8px 24px rgba(17,24,39,0.06);
+  padding:40px;
+  border:1px solid rgba(15,23,42,0.03);
+}
+
+.header{
+  text-align:center;
+}
+.header .title{
+  font-size:28px;
+  font-weight:800;
+  margin:0;
+  line-height:1.05;
+}
+.header .subtitle{
+  margin-top:8px;
+  color:var(--muted);
+  font-size:14px;
+}
+
+.form-section{margin-top:28px}
+.form-section label{
+  display:block;
+  font-weight:600;
+  color:var(--text);
+  margin-bottom:6px;
+}
+.form-section .helper{
+  margin:0;
+  font-size:13px;
+  color:var(--muted);
+}
+
+.input-field{
+  width:100%;
+  display:block;
+  margin-top:12px;
+  padding:14px 16px;
+  font-size:15px;
+  border-radius:10px;
+  border:1px solid var(--border);
+  background:#fff;
+  transition:box-shadow .12s ease, border-color .12s ease;
+}
+.input-field:focus{
+  outline:none;
+  border-color: rgba(59,130,246,0.9);
+  box-shadow:0 6px 18px rgba(59,130,246,0.06);
+}
+
+.cta-wrap{margin-top:20px;text-align:center}
+.cta-button{
+  display:inline-block;
+  background:var(--blue);
+  color:white;
+  border:none;
+  padding:12px 22px;
+  border-radius:10px;
+  font-size:16px;
+  font-weight:600;
+  cursor:pointer;
+  transition:transform .08s ease, background .12s ease;
+}
+.cta-button:hover{background:#1e40af}
+.cta-button:active{transform:translateY(1px)}
+
+#spinner{margin-top:8px;color:var(--muted);font-size:14px}
+
+#content{
+  margin-top:24px;
+  color:var(--text);
+  line-height:1.7;
+}
+
+/* Responsive tweaks */
+@media (max-width:480px){
+  .app-card{padding:20px}
+  .header .title{font-size:22px}
+  .input-field{padding:12px}
+  .cta-button{width:100%;padding:12px}
+}
+
+/* Utility helpers */
+.hidden{display:none}
+
+.secondary-button{
+  display:inline-block;
+  background:transparent;
+  color:var(--blue);
+  border:1px solid rgba(37,99,235,0.2);
+  padding:10px 18px;
+  border-radius:10px;
+  font-weight:600;
+  cursor:pointer;
+}
+.secondary-button:hover{background:rgba(37,99,235,0.04)}
