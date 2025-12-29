@@ -1,7 +1,6 @@
 from flask import Flask, render_template, request
-from langchain.llms import OpenAI
-from langchain.prompts import PromptTemplate
-from langchain.chains import LLMChain 
+from langchain_openai import OpenAI
+from langchain_core.prompts import PromptTemplate
 app = Flask(__name__)
 
 
@@ -14,11 +13,11 @@ def index():
 
 def generate():
   if request.method == 'POST':  
-    prompt = PromptTemplate.from_template("Generate a blog on title {title}?")
+    prompt_template = PromptTemplate.from_template("Generate a blog on title {title}?")
     llm = OpenAI(temperature=0.3) 
-    chain = LLMChain(llm=llm, prompt=prompt)
-    prompt = request.json.get('prompt')
-    output = chain.run(prompt)
+    chain = prompt_template | llm
+    title = request.json.get('prompt')
+    output = chain.invoke({"title": title})
     return output
 
 
