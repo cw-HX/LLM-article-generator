@@ -108,6 +108,18 @@ body{
   line-height:1.7;
 }
 
+/* Prevent long content from overflowing the card */
+#content{
+  overflow-x:auto;
+  word-break:break-word;
+  overflow-wrap:break-word;
+  -webkit-overflow-scrolling: touch;
+}
+
+#content img{max-width:100%;height:auto;display:block}
+#content pre, #content code{white-space:pre-wrap;word-break:break-word}
+.app-card{word-wrap:break-word;}
+
 /* Responsive tweaks */
 @media (max-width:480px){
   .app-card{padding:20px}
