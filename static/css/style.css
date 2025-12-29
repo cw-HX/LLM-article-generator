@@ -31,7 +31,9 @@ body{
 
 .app-card{
   width:100%;
-  max-width:720px;
+  /* Allow wider layout for generated content while keeping a sensible max */
+  max-width:1200px;
+  width: min(96%, 1200px);
   background:var(--card);
   border-radius:14px;
   box-shadow:0 8px 24px rgba(17,24,39,0.06);
@@ -106,6 +108,13 @@ body{
   margin-top:24px;
   color:var(--text);
   line-height:1.7;
+  /* Keep generated content visible within viewport by limiting height
+     and enabling internal scroll when needed. This prevents the page
+     from growing beyond the browser view while letting users read all
+     content via an inner scrollbar. */
+  max-height: calc(100vh - 240px);
+  overflow:auto;
+  padding-right:12px; /* ensure scrollbar doesn't overlap text */
 }
 
 /* Prevent long content from overflowing the card */
