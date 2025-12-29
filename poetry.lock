@@ -204,6 +204,25 @@ docs = ["sphinx", "furo"]
 test = ["objgraph", "psutil", "setuptools"]
 
 [[package]]
+name = "groq"
+version = "0.37.1"
+description = "The official Python library for the groq API"
+category = "main"
+optional = false
+python-versions = ">=3.9"
+
+[package.dependencies]
+anyio = ">=3.5.0,<5"
+distro = ">=1.7.0,<2"
+httpx = ">=0.23.0,<1"
+pydantic = ">=1.9.0,<3"
+sniffio = "*"
+typing-extensions = ">=4.10,<5"
+
+[package.extras]
+aiohttp = ["aiohttp", "httpx-aiohttp (>=0.1.9)"]
+
+[[package]]
 name = "h11"
 version = "0.16.0"
 description = "A pure-Python, bring-your-own-I/O implementation of HTTP/1.1"
@@ -438,6 +457,18 @@ pyyaml = ">=5.3.0,<7.0.0"
 tenacity = ">=8.1.0,<8.4.0 || >8.4.0,<10.0.0"
 typing-extensions = ">=4.7.0,<5.0.0"
 uuid-utils = ">=0.12.0,<1.0"
+
+[[package]]
+name = "langchain-groq"
+version = "1.1.1"
+description = "An integration package connecting Groq and LangChain"
+category = "main"
+optional = false
+python-versions = "<4.0.0,>=3.10.0"
+
+[package.dependencies]
+groq = ">=0.30.0,<1.0.0"
+langchain-core = ">=1.1.0,<2.0.0"
 
 [[package]]
 name = "langchain-openai"
@@ -1115,7 +1146,7 @@ cffi = ["cffi (>=1.17,<2.0)", "cffi (>=2.0.0b)"]
 [metadata]
 lock-version = "1.1"
 python-versions = ">=3.10.0,<3.11"
-content-hash = "de3594ae98c47f093055342a52cea9b162bc95fbfc0e57737dd17f06979b5b71"
+content-hash = "d7b79678f6e58a5d8062f0bc80132dc1c417df3e587f2f74fe098adcd6b72ed0"
 
 [metadata.files]
 aiohappyeyeballs = []
@@ -1137,6 +1168,7 @@ exceptiongroup = []
 flask = []
 frozenlist = []
 greenlet = []
+groq = []
 h11 = []
 httpcore = []
 httpx = []
@@ -1152,6 +1184,7 @@ langchain = []
 langchain-classic = []
 langchain-community = []
 langchain-core = []
+langchain-groq = []
 langchain-openai = []
 langchain-text-splitters = []
 langgraph = []

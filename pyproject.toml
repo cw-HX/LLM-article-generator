@@ -11,6 +11,8 @@ langchain = ">=0.3"
 openai = ">=1.109.1"
 langchain-community = ">=0.3"
 langchain-openai = "^1.1.6"
+langchain-groq = "^1.1.1"
+langchain-core = "^1.2.5"
 
 [tool.poetry.dev-dependencies]
 debugpy = "^1.6.2"
