@@ -1,6 +1,8 @@
 from flask import Flask, render_template, request
-from langchain_openai import OpenAI
+from langchain_groq import ChatGroq
 from langchain_core.prompts import PromptTemplate
+import os
+
 app = Flask(__name__)
 
 
@@ -8,17 +10,21 @@ app = Flask(__name__)
 def index():
     return render_template("index.html")
   
+
 @app.route('/generate', methods=['GET', 'POST'])
-
-
 def generate():
   if request.method == 'POST':  
     prompt_template = PromptTemplate.from_template("Generate a blog on title {title}?")
-    llm = OpenAI(temperature=0.3) 
+    llm = ChatGroq(
+        temperature=0.3,
+        groq_api_key=os.environ.get("GROQ_API_KEY"),
+        model_name="llama-3.3-70b-versatile"
+    ) 
     chain = prompt_template | llm
     title = request.json.get('prompt')
     output = chain.invoke({"title": title})
-    return output
+    # ChatGroq returns a BaseMessage, we need to extract the content string
+    return output.content
 
 
 app.run(host='0.0.0.0', port=5000)
